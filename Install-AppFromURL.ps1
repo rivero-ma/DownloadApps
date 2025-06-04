@@ -23,6 +23,7 @@ function Install-AppFromURL {
     (New-Object System.Net.WebClient).DownloadFile($url, $output)
 
     Write-Output "Download complete."
+    exit
 }
 
-
+Install-AppFromURL -url $url -installPath $installPath
