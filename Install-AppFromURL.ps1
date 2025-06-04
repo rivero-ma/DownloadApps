@@ -25,4 +25,4 @@ function Install-AppFromURL {
     Write-Output "Download complete."
 }
 
-Install-AppFromURL -url $url -installPath $installPath
+
