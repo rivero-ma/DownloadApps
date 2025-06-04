@@ -1,7 +1,7 @@
 function Install-AppFromURL {
     param (
         [string]$url,
-        [string]$installPath = "C:\InstalledApps"  # Default path if none is provided
+        [string]$installPath
     )
 
     $filename = [System.IO.Path]::GetFileName($url)
