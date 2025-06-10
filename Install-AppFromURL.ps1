@@ -1,9 +1,13 @@
 function Install-AppFromURL {
     param (
-        [string]$url,
-        [string]$installPath
+        # These parameters will be populated by Datto RMM's environment variables
+        # No need to explicitly declare them in the function param block if they're coming from env vars
     )
 
+    # Access the input variables as environment variables
+    $url = $env:url_input 
+    $installPath = $env:installPath_input
+    
     $filename = [System.IO.Path]::GetFileName($url)
     $output = Join-Path -Path $installPath -ChildPath $filename
     $log_date = Get-Date -Format "MM-dd-yyyy-HHmmss"
@@ -26,4 +30,5 @@ function Install-AppFromURL {
     exit
 }
 
-Install-AppFromURL -url $url -installPath $installPath
+# Call the function (the parameters will be populated by Datto RMM as environment variables)
+Install-AppFromURL
